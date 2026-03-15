@@ -62,8 +62,8 @@ const styles = StyleSheet.create({
   },
   header: {
     padding: 16,
-    backgroundColor: '#e6f0ff',
+    backgroundColor: '#FFF3E0', // Warm saffron-tinted cream
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: '#E8A87C', // Warm border
   }
 });

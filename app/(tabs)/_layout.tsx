@@ -8,9 +8,9 @@ const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#2C3E50', // Deep Professional Blue
-    accent: '#C0392B',  // Subtle Red/Orange accent
-    background: '#FDFBF7', // Soft Off-White
+    primary: '#D35400',   // Saffron Orange – spiritual & warm
+    accent: '#1B5E20',    // Deep Forest Green – nature & peace
+    background: '#FFF8F0', // Warm Cream background
     surface: '#ffffff',
   },
 };

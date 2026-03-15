@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(50, 60, 40, 0.4)', // Dark greenish tint to match site
+    backgroundColor: 'rgba(27, 94, 32, 0.35)', // Deep forest green tint overlay
   },
   heroContent: {
     flexDirection: 'row',
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   heroSubtitle: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#d4af37', // Gold-ish color to match website
+    color: '#FF8C00', // Saffron orange for spiritual feel
     textAlign: 'right',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: { width: -1, height: 1 },
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
   heroMainTitle: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#d4af37',
+    color: '#FF8C00',
     textAlign: 'center',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: { width: -1, height: 1 },
@@ -180,6 +180,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     marginTop: 8,
+    color: '#1B5E20', // Forest green for card titles
   },
   cardActions: {
     paddingRight: 16,

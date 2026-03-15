@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
     marginBottom: 8,
+    color: '#1B5E20', // Forest green
   },
   subtitle: {
     marginBottom: 16,
@@ -121,5 +122,6 @@ const styles = StyleSheet.create({
   button: {
     marginTop: 16,
     paddingVertical: 6,
+    backgroundColor: '#D35400', // Saffron orange button
   }
 });
