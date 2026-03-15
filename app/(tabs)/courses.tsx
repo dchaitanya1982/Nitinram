@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, FlatList, StyleSheet } from 'react-native';
+import { View, FlatList, StyleSheet, Image } from 'react-native';
 import { List, Divider, Text, Button, useTheme } from 'react-native-paper';
 import { useRouter } from 'expo-router';
 
@@ -34,6 +34,11 @@ export default function CoursesScreen() {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
+      <Image 
+         source={{ uri: 'https://nitinram.com/wp-content/uploads/2024/12/anhad-retreat-135x300.png' }} 
+         style={styles.banner} 
+         resizeMode="cover"
+      />
       <View style={styles.header}>
         <Text variant="titleMedium">Hidden fragrance ! “The seed may not be aware of the infinite possibilities hidden within it. But thankfully the Gardener knows the art and the technique!” - Nitin Ram</Text>
       </View>
@@ -50,6 +55,10 @@ export default function CoursesScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  banner: {
+    width: '100%',
+    height: 150,
   },
   header: {
     padding: 16,

@@ -2,13 +2,18 @@ import React from 'react';
 import { ScrollView, View, StyleSheet, Linking } from 'react-native';
 import { Text, Card, Button, useTheme } from 'react-native-paper';
 import { useRouter } from 'expo-router';
+import YoutubePlayer from 'react-native-youtube-iframe';
 
 export default function HomeScreen() {
   const theme = useTheme();
   const router = useRouter();
 
+  const YOUTUBE_VIDEO_IDS = ['tMMRNZAVZcs', 'hTVmkEBKJ8k'];
+
   return (
     <ScrollView style={[styles.container, { backgroundColor: theme.colors.background }]}>
+      
+      {/* Intro Section */}
       <Card style={styles.card}>
         <Card.Title title="Seeking Ends Here" subtitle="“Unshakable joy... just zero miles away”" />
         <Card.Cover 
@@ -25,8 +30,23 @@ export default function HomeScreen() {
         </Card.Actions>
       </Card>
 
+      {/* Video Gallery Section */}
       <View style={styles.sectionTitle}>
-        <Text variant="headlineSmall" style={styles.sectionTitleText}>“Being is ease, Becoming, a DISease.”</Text>
+        <Text variant="headlineSmall" style={styles.sectionTitleText}>Watch & Listen</Text>
+      </View>
+      {YOUTUBE_VIDEO_IDS.map((videoId) => (
+         <Card key={videoId} style={styles.videoCard}>
+           <YoutubePlayer
+             height={200}
+             play={false}
+             videoId={videoId}
+           />
+         </Card>
+      ))}
+
+      {/* Philosophy Section */}
+      <View style={styles.sectionTitle}>
+        <Text variant="titleLarge" style={styles.sectionTitleText}>“Being is ease, Becoming, a DISease.”</Text>
       </View>
 
       <Card style={styles.card}>
@@ -64,19 +84,28 @@ const styles = StyleSheet.create({
     margin: 16,
     elevation: 4,
   },
+  videoCard: {
+    marginHorizontal: 16,
+    marginBottom: 16,
+    elevation: 4,
+    overflow: 'hidden',
+  },
   heroImage: {
     height: 200,
   },
   sectionTitle: {
     padding: 16,
+    paddingBottom: 4,
     alignItems: 'center',
   },
   sectionTitleText: {
     fontWeight: 'bold',
     textAlign: 'center',
+    color: '#005b9f',
   },
   text: {
     marginTop: 8,
     lineHeight: 22,
   }
 });
+
