@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View, StyleSheet, Linking } from 'react-native';
+import { ScrollView, View, StyleSheet, Linking, ImageBackground, Image } from 'react-native';
 import { Text, Card, Button, useTheme } from 'react-native-paper';
 import { useRouter } from 'expo-router';
 import YoutubePlayer from 'react-native-youtube-iframe';
@@ -13,12 +13,33 @@ export default function HomeScreen() {
   return (
     <ScrollView style={[styles.container, { backgroundColor: theme.colors.background }]}>
       
-      {/* Intro Section */}
+      {/* Hero Section Recreated to match nitinram.com exactly */}
+      <View style={styles.heroContainer}>
+        <ImageBackground 
+          source={{ uri: 'https://nitinram.com/wp-content/uploads/2024/08/IMG_20161007_064648596_HDR-Large.jpg' }} 
+          style={styles.heroBackground}
+          imageStyle={styles.heroBackgroundImage}
+        >
+          {/* Dark overlay for text readability */}
+          <View style={styles.overlay} />
+          
+          <View style={styles.heroContent}>
+             <View style={styles.heroTextContainer}>
+                <Text style={styles.heroTitle}>Experience</Text>
+                <Text style={styles.heroSubtitle}>A Life</Text>
+                <Text style={styles.heroMainTitle}>Totally Free</Text>
+                <Text style={styles.heroMainTitle}>of Suffering!</Text>
+             </View>
+             
+             <Image 
+                source={{ uri: 'https://nitinram.com/wp-content/uploads/elementor/thumbs/nitinram-qtzn4mj68mnvj1hxlse9lva1hkinsp373fp31xyo94.png' }}
+                style={styles.heroPortrait}
+             />
+          </View>
+        </ImageBackground>
+      </View>
+
       <Card style={styles.card} mode="elevated">
-        <Card.Cover 
-           source={{ uri: 'https://nitinram.com/wp-content/uploads/2024/09/nitin-ram-homepage.jpg' }} 
-           style={styles.heroImage}
-        />
         <Card.Title 
           title="Seeking Ends Here" 
           subtitle="“Unshakable joy... just zero miles away”" 
@@ -85,6 +106,66 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  heroContainer: {
+    height: 350,
+    width: '100%',
+    backgroundColor: '#000',
+  },
+  heroBackground: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  heroBackgroundImage: {
+    opacity: 0.8,
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(50, 60, 40, 0.4)', // Dark greenish tint to match site
+  },
+  heroContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+    paddingHorizontal: 20,
+    marginTop: 40,
+  },
+  heroTextContainer: {
+    flex: 1,
+  },
+  heroTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+  heroSubtitle: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#d4af37', // Gold-ish color to match website
+    textAlign: 'right',
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+  heroMainTitle: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#d4af37',
+    textAlign: 'center',
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: -1, height: 1 },
+    textShadowRadius: 10,
+  },
+  heroPortrait: {
+    width: 140,
+    height: 140,
+    borderRadius: 70,
+    marginLeft: 10,
   },
   card: {
     margin: 16,
