@@ -14,25 +14,29 @@ export default function HomeScreen() {
     <ScrollView style={[styles.container, { backgroundColor: theme.colors.background }]}>
       
       {/* Intro Section */}
-      <Card style={styles.card}>
-        <Card.Title title="Seeking Ends Here" subtitle="“Unshakable joy... just zero miles away”" />
+      <Card style={styles.card} mode="elevated">
         <Card.Cover 
-           source={{ uri: 'https://nitinram.com/wp-content/uploads/2021/04/NitinRam_12.jpg' }} 
+           source={{ uri: 'https://nitinram.com/wp-content/uploads/2024/09/nitin-ram-homepage.jpg' }} 
            style={styles.heroImage}
         />
+        <Card.Title 
+          title="Seeking Ends Here" 
+          subtitle="“Unshakable joy... just zero miles away”" 
+          titleStyle={styles.cardTitle}
+        />
         <Card.Content>
-          <Text variant="bodyMedium" style={styles.text}>
+          <Text variant="bodyLarge" style={styles.text}>
             Since 2008, Nitin Ram has been living a life totally free of suffering, by the grace of his Masters. He is dedicated to helping others achieve the same peace and freedom.
           </Text>
         </Card.Content>
-        <Card.Actions>
-          <Button onPress={() => Linking.openURL('https://nitinram.com/journey/')}>Read Journey</Button>
+        <Card.Actions style={styles.cardActions}>
+          <Button mode="contained" onPress={() => Linking.openURL('https://nitinram.com/journey/')}>Read Journey</Button>
         </Card.Actions>
       </Card>
 
       {/* Video Gallery Section */}
       <View style={styles.sectionTitle}>
-        <Text variant="headlineSmall" style={styles.sectionTitleText}>Watch & Listen</Text>
+        <Text variant="headlineSmall" style={[styles.sectionTitleText, { color: theme.colors.primary }]}>Watch & Listen</Text>
       </View>
       {YOUTUBE_VIDEO_IDS.map((videoId) => (
          <Card key={videoId} style={styles.videoCard}>
@@ -46,27 +50,29 @@ export default function HomeScreen() {
 
       {/* Philosophy Section */}
       <View style={styles.sectionTitle}>
-        <Text variant="titleLarge" style={styles.sectionTitleText}>“Being is ease, Becoming, a DISease.”</Text>
+        <Text variant="titleMedium" style={[styles.sectionTitleText, { color: theme.colors.primary, fontStyle: 'italic' }]}>
+          “Being is ease, Becoming, a DISease.”
+        </Text>
       </View>
 
       <Card style={styles.card}>
-        <Card.Title title="Akriya Yog" />
+        <Card.Title title="Akriya Yog" titleStyle={styles.cardTitle} />
         <Card.Content>
-          <Text variant="bodyMedium" style={styles.text}>
+          <Text variant="bodyLarge" style={styles.text}>
             Nitin Ram is the founder of Akriya Yog. Akriya Yog is the art of Being. It is the divine gate to the abundant and independent joy.
           </Text>
         </Card.Content>
       </Card>
 
-      <Card style={styles.card}>
-        <Card.Title title="Anhad Retreat" />
+      <Card style={[styles.card, styles.lastCard]}>
+        <Card.Title title="Anhad Retreat" titleStyle={styles.cardTitle} />
         <Card.Content>
-          <Text variant="bodyMedium" style={styles.text}>
+          <Text variant="bodyLarge" style={styles.text}>
             A gateway to life free of suffering... Ram’s way of life does not deny the world we live in. Rather, it takes the world along with us.
           </Text>
         </Card.Content>
-        <Card.Actions>
-          <Button mode="contained" onPress={() => router.push('/courses')}>
+        <Card.Actions style={styles.cardActions}>
+          <Button mode="outlined" onPress={() => router.push('/courses')}>
             View Upcoming Retreats
           </Button>
         </Card.Actions>
@@ -82,30 +88,47 @@ const styles = StyleSheet.create({
   },
   card: {
     margin: 16,
-    elevation: 4,
+    elevation: 2, // Softer shadow for professional look
+    borderRadius: 12,
+    backgroundColor: '#ffffff',
+  },
+  lastCard: {
+    marginBottom: 40,
+  },
+  cardTitle: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    marginTop: 8,
+  },
+  cardActions: {
+    paddingRight: 16,
+    paddingBottom: 16,
   },
   videoCard: {
     marginHorizontal: 16,
-    marginBottom: 16,
-    elevation: 4,
+    marginBottom: 20,
+    elevation: 2,
+    borderRadius: 12,
     overflow: 'hidden',
   },
   heroImage: {
-    height: 200,
+    height: 250,
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
   },
   sectionTitle: {
     padding: 16,
-    paddingBottom: 4,
+    paddingTop: 8,
     alignItems: 'center',
   },
   sectionTitleText: {
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#005b9f',
   },
   text: {
     marginTop: 8,
-    lineHeight: 22,
+    lineHeight: 24, // Increased line height for readability
+    color: '#333333', // Softer black for body text
   }
 });
 
